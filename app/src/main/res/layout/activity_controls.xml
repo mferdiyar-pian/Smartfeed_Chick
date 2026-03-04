@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="72dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ===== HEADER ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="14dp"
+                android:background="#FFFFFF">
+
+                <!-- Back Arrow -->
+                <TextView
+                    android:id="@+id/btnBack"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="←"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:gravity="center"/>
+
+                <!-- Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Feeder Controls"
+                    android:textColor="#1B2E1B"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <!-- Settings Icon -->
+                <ImageView
+                    android:id="@+id/btnSettings"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_manage"
+                    android:tint="#888888"/>
+            </LinearLayout>
+
+            <!-- ===== SYSTEM STATUS CARD ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- SYSTEM STATUS label -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SYSTEM STATUS"
+                            android:textColor="#AAAAAA"
+                            android:textSize="10sp"
+                            android:letterSpacing="0.12"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <!-- Title + ACTIVE badge row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Automated Rail\nFeeder"
+                                android:textColor="#1B2E1B"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:lineSpacingExtra="2dp"/>
+
+                            <!-- ACTIVE Badge -->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:background="@drawable/circle_dark_green"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ACTIVE"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:letterSpacing="0.08"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Robot Illustration Box -->
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="14dp"
+                            android:background="@drawable/rounded_white_box">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="16dp"
+                                android:src="@drawable/ic_robot_arm"
+                                android:tint="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:layout_marginBottom="10dp"
+                                android:text="Rail Unit: RF-082"
+                                android:textColor="#888888"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif"/>
+                        </FrameLayout>
+
+                        <!-- Current Position -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="6dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Current Position"
+                                android:textColor="#777777"
+                                android:textSize="12sp"
+                                android:fontFamily="sans-serif"/>
+
+                            <TextView
+                                android:id="@+id/txtPosition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="650m / 1000m"
+                                android:textColor="#1B2E1B"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"/>
+                        </LinearLayout>
+
+                        <!-- Position Progress Bar -->
+                        <ProgressBar
+                            android:id="@+id/progressPosition"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:progress="65"
+                            android:progressDrawable="@drawable/progress_bar_custom"
+                            android:background="@drawable/progress_bg"/>
+
+                        <!-- Position Labels -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="BASE (0M)"
+                                android:textColor="#BBBBBB"
+                                android:textSize="9sp"
+                                android:letterSpacing="0.05"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="END (1000M)"
+                                android:textColor="#BBBBBB"
+                                android:textSize="9sp"
+                                android:letterSpacing="0.05"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- ===== FEEDING SPEED CARD ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Speed Header Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <!-- Icon + Label -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="28dp"
+                                    android:layout_height="28dp"
+                                    android:text="⚡"
+                                    android:textSize="16sp"
+                                    android:gravity="center"
+                                    android:background="@drawable/circle_dark_green"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="Feeding Speed"
+                                    android:textColor="#555555"
+                                    android:textSize="13sp"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+
+                            <!-- Speed Value -->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/txtSpeed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1.2"
+                                    android:textColor="#1B2E1B"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="sans-serif-medium"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=" m/s"
+                                    android:textColor="#999999"
+                                    android:textSize="12sp"
+                                    android:layout_marginBottom="3dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Speed Slider -->
+                        <SeekBar
+                            android:id="@+id/seekBarSpeed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:max="30"
+                            android:progress="12"
+                            android:progressTint="#2E7D32"
+                            android:thumbTint="#2E7D32"/>
+
+                        <!-- Slider Labels -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="2dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0.0"
+                                android:textColor="#BBBBBB"
+                                android:textSize="10sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1.5"
+                                android:textColor="#BBBBBB"
+                                android:textSize="10sp"
+                                android:gravity="center"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="3.0"
+                                android:textColor="#BBBBBB"
+                                android:textSize="10sp"
+                                android:gravity="end"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- ===== START FEEDING CYCLE BUTTON ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp">
+
+                <Button
+                    android:id="@+id/btnStartFeeding"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="▶  START FEEDING CYCLE"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/btn_green_rounded"
+                    android:stateListAnimator="@null"/>
+            </LinearLayout>
+
+            <!-- ===== EMERGENCY + RETURN ROW ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="10dp">
+
+                <!-- Emergency Stop -->
+                <Button
+                    android:id="@+id/btnEmergencyStop"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="■  EMERGENCY STOP"
+                    android:textColor="#D32F2F"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/circle_light_red"
+                    android:stateListAnimator="@null"
+                    android:layout_marginRight="8dp"/>
+
+                <!-- Return to Base -->
+                <Button
+                    android:id="@+id/btnReturnBase"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="←  RETURN TO BASE"
+                    android:textColor="#333333"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/btn_outline_rounded"
+                    android:stateListAnimator="@null"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+
+            <!-- ===== PAYLOAD + BATTERY ROW ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="16dp">
+
+                <!-- Payload Weight Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="8dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PAYLOAD WEIGHT"
+                            android:textColor="#999999"
+                            android:textSize="9sp"
+                            android:letterSpacing="0.08"
+                            android:fontFamily="sans-serif"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:id="@+id/txtPayload"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="245"
+                                android:textColor="#1B2E1B"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" kg"
+                                android:textColor="#AAAAAA"
+                                android:textSize="12sp"
+                                android:layout_marginBottom="3dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Battery Level Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="8dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BATTERY LEVEL"
+                            android:textColor="#999999"
+                            android:textSize="9sp"
+                            android:letterSpacing="0.08"
+                            android:fontFamily="sans-serif"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:id="@+id/txtBattery"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="88"
+                                android:textColor="#1B2E1B"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" %"
+                                android:textColor="#AAAAAA"
+                                android:textSize="12sp"
+                                android:layout_marginBottom="3dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ===== BOTTOM NAVIGATION ===== -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:itemIconTint="@drawable/bottom_nav_selector"
+        app:itemTextColor="@drawable/bottom_nav_selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:elevation="8dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -19,17 +19,27 @@
             </intent-filter>
         </activity>
 
-        <!-- Login Activity (setelah splash selesai) -->
+        <!-- Login Activity -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
 
-        <!-- Main Activity (halaman dashboard) -->
+        <!-- Dashboard Activity -->
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
 
-        <!-- Main Activity (setelah login selesai) -->
+        <!-- Controls Activity -->
+        <activity
+            android:name=".ControlsActivity"
+            android:exported="false" />
+
+        <!-- Monitoring Activity -->
+        <activity
+            android:name=".MonitoringActivity"
+            android:exported="false" />
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />

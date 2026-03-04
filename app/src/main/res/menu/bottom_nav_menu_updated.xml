@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/menu/bottom_nav_menu.xml — UPDATE ini (tambah nav_controls) -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
@@ -12,14 +13,9 @@
         android:title="Controls"/>
 
     <item
-        android:id="@+id/nav_monitoring"
-        android:icon="@android:drawable/ic_menu_view"
-        android:title="Monitoring"/>
-
-    <item
-        android:id="@+id/nav_analytics"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:title="Analytics"/>
+        android:id="@+id/nav_logs"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Logs"/>
 
     <item
         android:id="@+id/nav_profile"
