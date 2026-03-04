@@ -50,20 +50,31 @@ public class MonitoringActivity extends AppCompatActivity {
 
         // Bottom Navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+        
+        // Memastikan item Monitoring terpilih (warna hijau/aktif)
+        bottomNav.setSelectedItemId(R.id.nav_monitoring);
+
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
                 startActivity(new Intent(this, DashboardActivity.class));
                 finish();
+                return true;
             } else if (id == R.id.nav_controls) {
                 startActivity(new Intent(this, ControlsActivity.class));
                 finish();
-            } else if (id == R.id.nav_logs) {
-                Toast.makeText(this, "Logs", Toast.LENGTH_SHORT).show();
+                return true;
+            } else if (id == R.id.nav_monitoring) {
+                // Sudah di halaman monitoring
+                return true;
+            } else if (id == R.id.nav_analytics) {
+                Toast.makeText(this, "Analytics", Toast.LENGTH_SHORT).show();
+                return true;
             } else if (id == R.id.nav_profile) {
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                return true;
             }
-            return true;
+            return false;
         });
 
         // Start live updates
