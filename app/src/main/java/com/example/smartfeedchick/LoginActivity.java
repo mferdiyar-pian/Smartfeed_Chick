@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
 
             // TODO: Tambahkan logika autentikasi di sini
             // Contoh langsung ke MainActivity:
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
             finish();
         });
 

@@ -24,6 +24,11 @@
             android:name=".LoginActivity"
             android:exported="false" />
 
+        <!-- Main Activity (halaman dashboard) -->
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+
         <!-- Main Activity (setelah login selesai) -->
         <activity
             android:name=".MainActivity"
