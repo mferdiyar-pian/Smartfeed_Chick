@@ -79,7 +79,8 @@ public class ControlsActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MonitoringActivity.class));
                 finish();
             } else if (id == R.id.nav_analytics) {
-                Toast.makeText(this, "Analytics", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, AnalyticsActivity.class));
+                return true;
             } else if (id == R.id.nav_profile) {
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
             }

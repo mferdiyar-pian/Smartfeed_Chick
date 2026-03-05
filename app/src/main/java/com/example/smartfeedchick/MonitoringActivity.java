@@ -68,7 +68,7 @@ public class MonitoringActivity extends AppCompatActivity {
                 // Sudah di halaman monitoring
                 return true;
             } else if (id == R.id.nav_analytics) {
-                Toast.makeText(this, "Analytics", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, AnalyticsActivity.class));
                 return true;
             } else if (id == R.id.nav_profile) {
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();

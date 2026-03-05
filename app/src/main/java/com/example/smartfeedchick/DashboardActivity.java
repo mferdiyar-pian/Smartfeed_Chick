@@ -31,7 +31,7 @@ public class DashboardActivity extends AppCompatActivity {
         // Konfigurasi Bottom Navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         bottomNav.setSelectedItemId(R.id.nav_home);
-        
+
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
@@ -43,7 +43,7 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MonitoringActivity.class));
                 return true;
             } else if (id == R.id.nav_analytics) {
-                Toast.makeText(this, "Analytics", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, AnalyticsActivity.class));
                 return true;
             } else if (id == R.id.nav_profile) {
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();

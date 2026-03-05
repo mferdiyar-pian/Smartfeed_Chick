@@ -39,6 +39,11 @@
             android:name=".MonitoringActivity"
             android:exported="false" />
 
+        <!-- Analytics Activity -->
+        <activity
+            android:name=".AnalyticsActivity"
+            android:exported="false" />
+
         <!-- Main Activity -->
         <activity
             android:name=".MainActivity"

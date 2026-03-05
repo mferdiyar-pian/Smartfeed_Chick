@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/ph_gradient_bar.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="#F44336"
+        android:centerColor="#4CAF50"
+        android:endColor="#2196F3"
+        android:angle="0"
+        android:type="linear"/>
+    <corners android:radius="5dp"/>
+</shape>
