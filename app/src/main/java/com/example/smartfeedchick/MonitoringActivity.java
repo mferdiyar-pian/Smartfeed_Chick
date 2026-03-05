@@ -40,42 +40,49 @@ public class MonitoringActivity extends AppCompatActivity {
 
         // Fan Control button
         Button btnFan = findViewById(R.id.btnFanControl);
-        btnFan.setOnClickListener(v ->
-                Toast.makeText(this, "Fan Control dibuka", Toast.LENGTH_SHORT).show());
+        if (btnFan != null) {
+            btnFan.setOnClickListener(v ->
+                    Toast.makeText(this, "Fan Control dibuka", Toast.LENGTH_SHORT).show());
+        }
 
         // Full Report button
         Button btnReport = findViewById(R.id.btnFullReport);
-        btnReport.setOnClickListener(v ->
-                Toast.makeText(this, "Membuat laporan lengkap...", Toast.LENGTH_SHORT).show());
+        if (btnReport != null) {
+            btnReport.setOnClickListener(v ->
+                    Toast.makeText(this, "Membuat laporan lengkap...", Toast.LENGTH_SHORT).show());
+        }
 
         // Bottom Navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
-        
-        // Memastikan item Monitoring terpilih (warna hijau/aktif)
-        bottomNav.setSelectedItemId(R.id.nav_monitoring);
+        if (bottomNav != null) {
+            // Memastikan item Monitoring terpilih (warna hijau/aktif)
+            bottomNav.setSelectedItemId(R.id.nav_monitoring);
 
-        bottomNav.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(this, DashboardActivity.class));
-                finish();
-                return true;
-            } else if (id == R.id.nav_controls) {
-                startActivity(new Intent(this, ControlsActivity.class));
-                finish();
-                return true;
-            } else if (id == R.id.nav_monitoring) {
-                // Sudah di halaman monitoring
-                return true;
-            } else if (id == R.id.nav_analytics) {
-                startActivity(new Intent(this, AnalyticsActivity.class));
-                return true;
-            } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-            return false;
-        });
+            bottomNav.setOnItemSelectedListener(item -> {
+                int id = item.getItemId();
+                if (id == R.id.nav_home) {
+                    startActivity(new Intent(this, DashboardActivity.class));
+                    finish();
+                    return true;
+                } else if (id == R.id.nav_controls) {
+                    startActivity(new Intent(this, ControlsActivity.class));
+                    finish();
+                    return true;
+                } else if (id == R.id.nav_monitoring) {
+                    // Sudah di halaman monitoring
+                    return true;
+                } else if (id == R.id.nav_analytics) {
+                    startActivity(new Intent(this, AnalyticsActivity.class));
+                    finish();
+                    return true;
+                } else if (id == R.id.nav_profile) {
+                    startActivity(new Intent(this, SettingsActivity.class));
+                    finish();
+                    return true;
+                }
+                return false;
+            });
+        }
 
         // Start live updates
         handler.post(liveUpdateRunnable);
@@ -87,9 +94,9 @@ public class MonitoringActivity extends AppCompatActivity {
         int humidity = 60 + random.nextInt(6);
         int ammonia = 20 + random.nextInt(5);
 
-        txtTemperature.setText(String.format("%.1f°C", temp));
-        txtHumidity.setText(humidity + "%");
-        txtAmmonia.setText(ammonia + " ppm");
+        if (txtTemperature != null) txtTemperature.setText(String.format("%.1f°C", temp));
+        if (txtHumidity != null) txtHumidity.setText(humidity + "%");
+        if (txtAmmonia != null) txtAmmonia.setText(ammonia + " ppm");
     }
 
     @Override

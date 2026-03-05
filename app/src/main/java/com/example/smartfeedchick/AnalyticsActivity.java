@@ -20,7 +20,7 @@ public class AnalyticsActivity extends AppCompatActivity {
         @Override
         public void run() {
             float ph = 7.0f + random.nextFloat() * 0.6f;
-            txtPH.setText(String.format("%.1f", ph));
+            if (txtPH != null) txtPH.setText(String.format("%.1f", ph));
             handler.postDelayed(this, 4000);
         }
     };
@@ -61,7 +61,6 @@ public class AnalyticsActivity extends AppCompatActivity {
         // Konfigurasi Bottom Navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         if (bottomNav != null) {
-            // Kita atur ID yang terpilih lewat kode agar tidak error di XML
             bottomNav.setSelectedItemId(R.id.nav_analytics);
 
             bottomNav.setOnItemSelectedListener(item -> {
@@ -81,7 +80,8 @@ public class AnalyticsActivity extends AppCompatActivity {
                     finish();
                     return true;
                 } else if (id == R.id.nav_profile) {
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, SettingsActivity.class));
+                    finish();
                     return true;
                 }
                 return false;

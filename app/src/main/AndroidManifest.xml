@@ -44,6 +44,11 @@
             android:name=".AnalyticsActivity"
             android:exported="false" />
 
+        <!-- Settings/Profile Activity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+
         <!-- Main Activity -->
         <activity
             android:name=".MainActivity"

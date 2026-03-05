@@ -30,33 +30,37 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Konfigurasi Bottom Navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
-        bottomNav.setSelectedItemId(R.id.nav_home);
+        if (bottomNav != null) {
+            bottomNav.setSelectedItemId(R.id.nav_home);
 
-        bottomNav.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                return true;
-            } else if (id == R.id.nav_controls) {
-                startActivity(new Intent(this, ControlsActivity.class));
-                return true;
-            } else if (id == R.id.nav_monitoring) {
-                startActivity(new Intent(this, MonitoringActivity.class));
-                return true;
-            } else if (id == R.id.nav_analytics) {
-                startActivity(new Intent(this, AnalyticsActivity.class));
-                return true;
-            } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-            return false;
-        });
+            bottomNav.setOnItemSelectedListener(item -> {
+                int id = item.getItemId();
+                if (id == R.id.nav_home) {
+                    return true;
+                } else if (id == R.id.nav_controls) {
+                    startActivity(new Intent(this, ControlsActivity.class));
+                    return true;
+                } else if (id == R.id.nav_monitoring) {
+                    startActivity(new Intent(this, MonitoringActivity.class));
+                    return true;
+                } else if (id == R.id.nav_analytics) {
+                    startActivity(new Intent(this, AnalyticsActivity.class));
+                    return true;
+                } else if (id == R.id.nav_profile) {
+                    startActivity(new Intent(this, SettingsActivity.class));
+                    return true;
+                }
+                return false;
+            });
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
-        bottomNav.getMenu().findItem(R.id.nav_home).setChecked(true);
+        if (bottomNav != null) {
+            bottomNav.getMenu().findItem(R.id.nav_home).setChecked(true);
+        }
     }
 }
